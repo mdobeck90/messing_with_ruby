@@ -7,6 +7,9 @@ f_name = f_names.sample
 l_name = l_names.sample
 puts f_name + " " + l_name
 
+#random email generator
+puts email = f_name[0].downcase + l_name.downcase + "@email.com"
+
 #samples random country
 puts country = countries.sample
 
