@@ -13,14 +13,19 @@ country = countries.sample
 #random email generator
 email = f_name[0].downcase + l_name.downcase + "@email.com"
 
-File.open("user_population_script.sql", 'w') do |file|
+open("user_population_script.sql", 'w') {|file|
     #format textually
-  for i in 1..5 do
-    file.write("Insert INTO users
+  for i in 1..5
+    file.puts("Insert INTO users
       (user_id, user_name, is_artist, f_name, l_name, country, email)
-      VALUES (#{rand(00000..99999)}, #{user_name},  #{rand(2)}, #{f_name.sample}, #{l_names.sample}, #{country}, #{email});")
+      VALUES (#{rand(00000..99999)}, '#{user_name}',  #{rand(2)}, '#{f_name}', '#{l_name}', '#{country}', '#{email}');")
+    f_name = f_names.sample
+    l_name = l_names.sample
+    user_name = f_name[1].downcase + l_name   
+    country = countries.sample
+    email = f_name[0].downcase + l_name.downcase + "@email.com"
   end
-end
+}
 
 #creates name made up of random first name and random last name
 f_name = f_names.sample
